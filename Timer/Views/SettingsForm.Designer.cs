@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tbSettings = new System.Windows.Forms.ToolStrip();
             this.tbbReturn = new System.Windows.Forms.ToolStripButton();
             this.tbbHelp = new System.Windows.Forms.ToolStripButton();
+            this.tbbQuit = new System.Windows.Forms.ToolStripButton();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.DescDataPicker = new System.Windows.Forms.Label();
-            this.tbbQuit = new System.Windows.Forms.ToolStripButton();
             this.bSave = new System.Windows.Forms.Button();
-            this.toolStrip1.SuspendLayout();
+            this.tbSettings.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // tbSettings
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tbSettings.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tbSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tbbReturn,
             this.tbbHelp,
             this.tbbQuit});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(289, 27);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tbSettings.Location = new System.Drawing.Point(0, 0);
+            this.tbSettings.Name = "tbSettings";
+            this.tbSettings.Size = new System.Drawing.Size(289, 27);
+            this.tbSettings.TabIndex = 0;
+            this.tbSettings.Text = "toolStrip1";
             // 
             // tbbReturn
             // 
@@ -71,6 +71,16 @@
             this.tbbHelp.Size = new System.Drawing.Size(58, 24);
             this.tbbHelp.Text = "Pomoc";
             // 
+            // tbbQuit
+            // 
+            this.tbbQuit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tbbQuit.Image = ((System.Drawing.Image)(resources.GetObject("tbbQuit.Image")));
+            this.tbbQuit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbbQuit.Name = "tbbQuit";
+            this.tbbQuit.Size = new System.Drawing.Size(63, 24);
+            this.tbbQuit.Text = "Wyjście";
+            this.tbbQuit.Click += new System.EventHandler(this.TBBQuit_Click);
+            // 
             // dtpDate
             // 
             this.dtpDate.Location = new System.Drawing.Point(12, 69);
@@ -87,16 +97,6 @@
             this.DescDataPicker.Size = new System.Drawing.Size(116, 20);
             this.DescDataPicker.TabIndex = 2;
             this.DescDataPicker.Text = "Wybrana Data";
-            // 
-            // tbbQuit
-            // 
-            this.tbbQuit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tbbQuit.Image = ((System.Drawing.Image)(resources.GetObject("tbbQuit.Image")));
-            this.tbbQuit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbbQuit.Name = "tbbQuit";
-            this.tbbQuit.Size = new System.Drawing.Size(63, 24);
-            this.tbbQuit.Text = "Wyjście";
-            this.tbbQuit.Click += new System.EventHandler(this.TBBQuit_Click);
             // 
             // bSave
             // 
@@ -117,11 +117,11 @@
             this.Controls.Add(this.bSave);
             this.Controls.Add(this.DescDataPicker);
             this.Controls.Add(this.dtpDate);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tbSettings);
             this.Name = "SettingsForm";
             this.Text = "Ustawienia";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tbSettings.ResumeLayout(false);
+            this.tbSettings.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,7 +129,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tbSettings;
         private System.Windows.Forms.ToolStripButton tbbReturn;
         private System.Windows.Forms.ToolStripButton tbbHelp;
         private System.Windows.Forms.DateTimePicker dtpDate;
