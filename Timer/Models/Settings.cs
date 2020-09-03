@@ -10,7 +10,10 @@ namespace Timer.Models
     public class Settings : System.Windows.Forms.DateTimePicker, ISettings
     {
         private readonly IRepository _repository;
-
+        public Settings() 
+        {
+        
+        }
         Settings(IRepository repository)
         {
             _repository = repository;

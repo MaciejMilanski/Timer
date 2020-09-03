@@ -8,12 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timer.Presenter;
 
 namespace Timer
 {
     public partial class MainForm : Form, IMainForm
     {
         Models.ViewTimer _viewTimer;
+
+        private MainFormPresenter presenter;
         public MainForm()
         {
             InitializeComponent();
@@ -39,6 +42,12 @@ namespace Timer
                 pbProgressBar.Maximum = _viewTimer.Maximum;
                 pbProgressBar.Value = _viewTimer.Value;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            presenter = new MainFormPresenter(this);
+            presenter.formLoad();
         }
     }
 }

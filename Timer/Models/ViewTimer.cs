@@ -19,11 +19,16 @@ namespace Timer.Models
         private string dateText;
         private int progressBarValue;
 
+        public ViewTimer()
+        {
+
+        }
+
         ViewTimer(IRepository repository)
         {
             _repository = repository;
         }
-        public void mainFormLoad(object sender, EventArgs e)
+        public void mainFormLoad()
         {
             if (loadData())
             {

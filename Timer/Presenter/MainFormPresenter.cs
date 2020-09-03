@@ -5,12 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Timer.Models;
-using Timer.DTOs;
 
 namespace Timer.Presenter
 { 
     class MainFormPresenter
-    {        
+    {
+        private readonly IMainForm _view;        
 
+        ViewTimer _viewTimer = new ViewTimer();
+
+       public  MainFormPresenter(IMainForm view)
+        {
+            _view = view;
+        }
+
+        public void formLoad()
+        {
+            _view.ViewTimer = _viewTimer;
+        }
     }
 }
