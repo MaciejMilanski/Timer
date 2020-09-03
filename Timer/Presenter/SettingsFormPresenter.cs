@@ -8,5 +8,10 @@ namespace Timer.Presenter
 {
     class SettingsFormPresenter
     {
+        private readonly ISettingsForm _SettingsForm;
+        SettingsFormPresenter(ISettingsForm SettingsForm, DateTime datePickerValue)
+        {
+            _SettingsForm = SettingsForm;
+        }
     }
 }

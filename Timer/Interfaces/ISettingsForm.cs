@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Timer
 {
-    interface IManageSettingsForm
+    interface ISettingsForm
     {
         Models.Settings Settings { get; set; }
     }

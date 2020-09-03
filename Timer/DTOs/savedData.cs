@@ -8,7 +8,7 @@ namespace Timer.Models
 {
     public class SavedData
     {
-        public string Date;
+        public DateTime Date;
         public int progressBarMaxValue;
     }
 }

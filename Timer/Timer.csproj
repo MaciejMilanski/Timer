@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IManageMainForm.cs" />
     <Compile Include="Interfaces\IManageSettingsForm.cs" />
+    <Compile Include="DTOs\SavedData.cs" />
     <Compile Include="Models\Settings.cs">
       <SubType>Component</SubType>
     </Compile>

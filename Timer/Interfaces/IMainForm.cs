@@ -2,7 +2,7 @@
 
 namespace Timer
 {
-    interface IManageMainForm
+    interface IMainForm
     {
         Models.ViewTimer ViewTimer { get; set; }
     }
