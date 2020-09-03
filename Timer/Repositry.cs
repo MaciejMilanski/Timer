@@ -40,5 +40,13 @@ namespace Timer
             else
                 return "";
         }
+        public void saveData(string date, string maxValue)
+        {
+            string[] file = {"",""};
+            file[0] = date;
+            file[1] = maxValue;
+
+            System.IO.File.WriteAllLines(Environment.CurrentDirectory.ToString() + "save.txt", file);
+        }
     }
 }

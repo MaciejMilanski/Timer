@@ -52,9 +52,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IManageMainForm.cs" />
-    <Compile Include="Interfaces\IManageSettingsForm.cs" />
+    <Compile Include="Interfaces\ISettings.cs" />
+    <Compile Include="Interfaces\IViewTimer.cs" />
+    <Compile Include="Repositry.cs" />
+    <Compile Include="Interfaces\IMainForm.cs" />
+    <Compile Include="Interfaces\ISettingsForm.cs" />
     <Compile Include="DTOs\SavedData.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\Settings.cs">
       <SubType>Component</SubType>
     </Compile>

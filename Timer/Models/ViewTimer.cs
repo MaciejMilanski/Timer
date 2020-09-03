@@ -4,10 +4,12 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Timer.Interfaces;
+using System.Timers;
 
 namespace Timer.Models
 {
-    public class ViewTimer : CircularProgressBar.CircularProgressBar
+    public class ViewTimer : CircularProgressBar.CircularProgressBar, IViewTimer
     {
         private readonly IRepository _repository;
 
@@ -19,18 +21,19 @@ namespace Timer.Models
 
         ViewTimer(IRepository repository)
         {
-            _repository = repository;    
+            _repository = repository;
         }
-        private void mainFormLoad(object sender, EventArgs e)
+        public void mainFormLoad(object sender, EventArgs e)
         {
-            if (loadSavedData())
+            if (loadData())
             {
                 initializeTimer(progressBarValue);
             }
             else
                 this.Text = "00d:00h:00min:00s:000ms";
         }
-        void initializeTimer(int progressBarValue)
+
+        public void initializeTimer(int progressBarValue)
         {
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Interval = 10;
@@ -38,7 +41,7 @@ namespace Timer.Models
             timer.Start();
             this.Maximum = progressBarValue;
         }
-        private void timerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+        public void timerElapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
 
             delta = groundZero - DateTime.Now;
@@ -51,7 +54,7 @@ namespace Timer.Models
                 this.Update();
             });
         }
-        private bool loadSavedData()
+        public bool loadData()
         {
             bool flag = false;
             //Check if file exist, and if the date write in it is not past
@@ -65,6 +68,11 @@ namespace Timer.Models
                 }
             }
             return flag;
+        }
+        public void reloadTimer()
+        {
+            groundZero = Convert.ToDateTime(_repository.getDate());
+            progressBarValue = Convert.ToInt32(_repository.getPBMaxValue());
         }
     }
 }

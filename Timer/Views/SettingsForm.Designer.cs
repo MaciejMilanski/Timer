@@ -59,8 +59,7 @@
             this.tbbReturn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbbReturn.Name = "tbbReturn";
             this.tbbReturn.Size = new System.Drawing.Size(59, 24);
-            this.tbbReturn.Text = "Powrót";
-            this.tbbReturn.Click += new System.EventHandler(this.TBBReturn_Click);
+            this.tbbReturn.Text = "Powrót";            
             // 
             // tbbHelp
             // 
@@ -78,8 +77,7 @@
             this.tbbQuit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbbQuit.Name = "tbbQuit";
             this.tbbQuit.Size = new System.Drawing.Size(63, 24);
-            this.tbbQuit.Text = "Wyjście";
-            this.tbbQuit.Click += new System.EventHandler(this.TBBQuit_Click);
+            this.tbbQuit.Text = "Wyjście";            
             // 
             // dtpDate
             // 
@@ -106,8 +104,7 @@
             this.bSave.Size = new System.Drawing.Size(289, 23);
             this.bSave.TabIndex = 3;
             this.bSave.Text = "Zapisz";
-            this.bSave.UseVisualStyleBackColor = true;
-            this.bSave.Click += new System.EventHandler(this.bSave_Click);
+            this.bSave.UseVisualStyleBackColor = true;            
             // 
             // SettingsForm
             // 

@@ -12,15 +12,16 @@ using Timer.Models;
 
 namespace Timer
 {
-    public partial class SettingsForm : Form, IManageSettingsForm
+    public partial class SettingsForm : Form, ISettingsForm
     {
         Models.Settings _settings;
         public SettingsForm()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
-        public Settings Settings {
+        public Settings Settings
+        {
             get
             {
                 _settings.Value = dtpDate.Value;
@@ -34,5 +35,6 @@ namespace Timer
                 dtpDate.Value = _settings.Value;
             }
 
+        }
     }
 }

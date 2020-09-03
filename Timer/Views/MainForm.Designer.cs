@@ -89,8 +89,7 @@
             this.TBBSettings.Name = "TBBSettings";
             this.TBBSettings.RightToLeftAutoMirrorImage = true;
             this.TBBSettings.Size = new System.Drawing.Size(85, 24);
-            this.TBBSettings.Text = "Ustawienia";
-            this.TBBSettings.Click += new System.EventHandler(this.tbbSettings_Click);
+            this.TBBSettings.Text = "Ustawienia";           
             // 
             // TBBHelp
             // 
@@ -108,8 +107,7 @@
             this.TBBQuit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TBBQuit.Name = "TBBQuit";
             this.TBBQuit.Size = new System.Drawing.Size(63, 24);
-            this.TBBQuit.Text = "Wyjście";
-            this.TBBQuit.Click += new System.EventHandler(this.tbbQuit_Click);
+            this.TBBQuit.Text = "Wyjście";            
             // 
             // MainForm
             // 
@@ -120,8 +118,7 @@
             this.Controls.Add(this.ToolBar);
             this.Controls.Add(this.pbProgressBar);
             this.Name = "MainForm";
-            this.Text = "CountDown";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Text = "CountDown";            
             this.ToolBar.ResumeLayout(false);
             this.ToolBar.PerformLayout();
             this.ResumeLayout(false);

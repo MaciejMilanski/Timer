@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Timer
 {
-    public partial class MainForm : Form, IManageMainForm
+    public partial class MainForm : Form, IMainForm
     {
         Models.ViewTimer _viewTimer;
         public MainForm()

@@ -11,5 +11,6 @@ namespace Timer
         string getDate();
         string getPBMaxValue();
         bool ifExists(string fileLine);
+        void saveData(string date, string maxValue);
     }
 }
