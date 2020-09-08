@@ -11,64 +11,88 @@ namespace Timer.Models
 {
     public class ViewTimer : CircularProgressBar.CircularProgressBar, IViewTimer
     {
-        private readonly IRepository _repository;
+        Repository _repository = new Repository();
 
+        System.Timers.Timer timer;
         private DateTime groundZero = new DateTime();
         //private DateTime _now = new DateTime(DateTime.Toda)
         private TimeSpan delta = new TimeSpan(0, 0, 0, 0, 0);
         private string dateText;
+        private int progressBarMaxValue;
         private int progressBarValue;
+        private bool flag = false;
 
         public ViewTimer()
-        {
-
+        {           
         }
-
-        ViewTimer(IRepository repository)
+        public string mainFormLoadText()
         {
-            _repository = repository;
-        }
-        public void mainFormLoad()
-        {
-            if (loadData())
+            if (flag)
             {
-                initializeTimer(progressBarValue);
+                return dateText;
             }
             else
-                this.Text = "00d:00h:00min:00s:000ms";
+                return "00d:00h:00min:00s:000ms";
+        }
+        public int mainFormLoadMaxValue()
+        {
+            if (flag)
+            {
+                return progressBarMaxValue;
+            }
+            else
+                return 100;
+        }
+        public int mainFormLoadValue()
+        {
+            if (flag)
+            {
+                return progressBarValue;
+            }
+            else
+                return 100;
         }
 
-        public void initializeTimer(int progressBarValue)
+        public System.Timers.Timer initializeTimer()
         {
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 10;
+            timer = new System.Timers.Timer();
+            timer.Interval = 100;
             timer.Elapsed += timerElapsed;
             timer.Start();
-            this.Maximum = progressBarValue;
+            loadData();
+
+            return timer;
         }
         public void timerElapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-
-            delta = groundZero - DateTime.Now;
-            dateText = delta.Days.ToString() + "d:" + delta.Hours.ToString() + "h:" + delta.Minutes.ToString() + "min:" + delta.Seconds.ToString() + "s:" + delta.Milliseconds.ToString() + "ms";
-
-            this.Invoke((MethodInvoker)delegate
+            if (flag)
             {
-                this.Text = dateText;
-                this.Value = Convert.ToInt32(delta.TotalSeconds);
-                this.Update();
-            });
+                delta = groundZero - DateTime.Now;
+                dateText = delta.Days.ToString() + "d:" + delta.Hours.ToString() + "h:" + delta.Minutes.ToString() + "min:" + delta.Seconds.ToString() + "s:" + delta.Milliseconds.ToString() + "ms";
+                progressBarValue = Convert.ToInt32(delta.TotalSeconds);
+            }
+            if (groundZero == DateTime.Now)
+                timer.Stop();
+
+            //this.Invoke((MethodInvoker)delegate
+            //{
+            //    this.Text = dateText;
+            //    this.Value = Convert.ToInt32(delta.TotalSeconds);
+            //    this.Update();
+            //});
         }
         public bool loadData()
-        {
-            bool flag = false;
+        {            
             //Check if file exist, and if the date write in it is not past
             if (_repository.ifExists(_repository.getDate()) && _repository.ifExists(_repository.getPBMaxValue()))
             {             
                 if (Convert.ToDateTime(_repository.getDate()) > DateTime.Now)
                 {
                     groundZero = Convert.ToDateTime(_repository.getDate());
-                    progressBarValue = Convert.ToInt32(_repository.getPBMaxValue());
+                    delta = groundZero - DateTime.Now;
+                    dateText = delta.Days.ToString() + "d:" + delta.Hours.ToString() + "h:" + delta.Minutes.ToString() + "min:" + delta.Seconds.ToString() + "s:" + delta.Milliseconds.ToString() + "ms";
+                    progressBarMaxValue = Convert.ToInt32(_repository.getPBMaxValue());
+                    progressBarValue = Convert.ToInt32(delta.TotalSeconds);
                     flag = true;
                 }
             }

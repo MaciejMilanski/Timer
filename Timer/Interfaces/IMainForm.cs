@@ -4,6 +4,9 @@ namespace Timer
 {
     interface IMainForm
     {
-        Models.ViewTimer ViewTimer { get; set; }
+        string text { get; set; }
+        int value { get; set; }
+        int maxValue { get; set; }
+        //System.Timers.Timer timer { get; set; }
     }
 }

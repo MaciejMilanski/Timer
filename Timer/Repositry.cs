@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Timer
 {
-    class Repositry : IRepository
+    class Repository : IRepository
     {
         public bool ifExists(string fileLine)
         {
@@ -20,25 +20,25 @@ namespace Timer
         public string getDate()
         {
             string[] file;
-            if (!System.IO.File.Exists(Environment.CurrentDirectory.ToString() + "save.txt"))
+            if (System.IO.File.Exists(Environment.CurrentDirectory.ToString() + "/save.txt"))
             {
-                file = System.IO.File.ReadAllLines(Environment.CurrentDirectory.ToString() + "save.txt");
+                file = System.IO.File.ReadAllLines(Environment.CurrentDirectory.ToString() + "/save.txt");
                 return file[0];
             }
             else
-                return "";
+                return "00:00:00";
         }
 
         public string getPBMaxValue()
         {
             string[] file;
-            if (!System.IO.File.Exists(Environment.CurrentDirectory.ToString() + "save.txt"))
+            if (System.IO.File.Exists(Environment.CurrentDirectory.ToString() + "/save.txt"))
             {
-                file = System.IO.File.ReadAllLines(Environment.CurrentDirectory.ToString() + "save.txt");
+                file = System.IO.File.ReadAllLines(Environment.CurrentDirectory.ToString() + "/save.txt");
                 return file[1];
             }
             else
-                return "";
+                return "0";
         }
         public void saveData(string date, string maxValue)
         {
@@ -46,7 +46,7 @@ namespace Timer
             file[0] = date;
             file[1] = maxValue;
 
-            System.IO.File.WriteAllLines(Environment.CurrentDirectory.ToString() + "save.txt", file);
+            System.IO.File.WriteAllLines(Environment.CurrentDirectory.ToString() + "/save.txt", file);
         }
     }
 }

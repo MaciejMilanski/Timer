@@ -48,7 +48,7 @@
             this.tbbQuit});
             this.tbSettings.Location = new System.Drawing.Point(0, 0);
             this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(289, 27);
+            this.tbSettings.Size = new System.Drawing.Size(296, 27);
             this.tbSettings.TabIndex = 0;
             this.tbSettings.Text = "toolStrip1";
             // 
@@ -59,7 +59,8 @@
             this.tbbReturn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbbReturn.Name = "tbbReturn";
             this.tbbReturn.Size = new System.Drawing.Size(59, 24);
-            this.tbbReturn.Text = "Powrót";            
+            this.tbbReturn.Text = "Powrót";
+            this.tbbReturn.Click += new System.EventHandler(this.tbbReturn_Click);
             // 
             // tbbHelp
             // 
@@ -77,13 +78,16 @@
             this.tbbQuit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbbQuit.Name = "tbbQuit";
             this.tbbQuit.Size = new System.Drawing.Size(63, 24);
-            this.tbbQuit.Text = "Wyjście";            
+            this.tbbQuit.Text = "Wyjście";
+            this.tbbQuit.Click += new System.EventHandler(this.tbbQuit_Click);
             // 
             // dtpDate
             // 
+            this.dtpDate.CustomFormat = "MMMMdd, yyyy  |  hh:mm tt";
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDate.Location = new System.Drawing.Point(12, 69);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(265, 22);
+            this.dtpDate.Size = new System.Drawing.Size(264, 22);
             this.dtpDate.TabIndex = 1;
             // 
             // DescDataPicker
@@ -99,24 +103,26 @@
             // bSave
             // 
             this.bSave.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bSave.Location = new System.Drawing.Point(0, 116);
+            this.bSave.Location = new System.Drawing.Point(0, 109);
             this.bSave.Name = "bSave";
-            this.bSave.Size = new System.Drawing.Size(289, 23);
+            this.bSave.Size = new System.Drawing.Size(296, 30);
             this.bSave.TabIndex = 3;
             this.bSave.Text = "Zapisz";
-            this.bSave.UseVisualStyleBackColor = true;            
+            this.bSave.UseVisualStyleBackColor = true;
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 139);
+            this.ClientSize = new System.Drawing.Size(296, 139);
             this.Controls.Add(this.bSave);
             this.Controls.Add(this.DescDataPicker);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.tbSettings);
             this.Name = "SettingsForm";
             this.Text = "Ustawienia";
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.tbSettings.ResumeLayout(false);
             this.tbSettings.PerformLayout();
             this.ResumeLayout(false);

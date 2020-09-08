@@ -8,8 +8,10 @@ namespace Timer.Interfaces
 {
     public interface IViewTimer
     {
-        void mainFormLoad();
-        void initializeTimer(int progressBarValue);
+        string mainFormLoadText();
+        int mainFormLoadMaxValue();
+        int mainFormLoadValue();
+        System.Timers.Timer initializeTimer();
         void timerElapsed(object sender, System.Timers.ElapsedEventArgs e);
         bool loadData();
         void reloadTimer();

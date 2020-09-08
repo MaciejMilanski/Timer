@@ -12,13 +12,25 @@ namespace Timer.Presenter
         private readonly ISettingsForm _view;
 
         Settings _settings = new Settings();
-        SettingsFormPresenter(ISettingsForm view)
+        public SettingsFormPresenter(ISettingsForm view)
         {
             _view = view;
         }
-        void formLoad()
+
+        public void formLoad()
         {
-            _view.Settings = _settings;
+            _view.date = _settings.loadDPData();
+        }
+        public void saveData()
+        {
+            _settings.saveData(_view.date);
+        }
+        public bool validate()
+        {
+            if (_settings.validateDate(_view.date))
+                return true;
+            else
+                return false;
         }
     }
 }

@@ -10,6 +10,6 @@ namespace Timer.Interfaces
     {
         void loadSettingsForm(object sender, EventArgs e);
         void saveData(DateTime date);
-        void loadDPData();       
+        DateTime loadDPData();       
     }
 }

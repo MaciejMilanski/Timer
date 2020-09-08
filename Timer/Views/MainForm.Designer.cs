@@ -58,7 +58,7 @@
             this.pbProgressBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.pbProgressBar.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.pbProgressBar.Size = new System.Drawing.Size(500, 500);
-            this.pbProgressBar.StartAngle = 270;
+            this.pbProgressBar.StartAngle = 0;
             this.pbProgressBar.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.pbProgressBar.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
             this.pbProgressBar.SubscriptText = "";
@@ -90,6 +90,7 @@
             this.TBBSettings.RightToLeftAutoMirrorImage = true;
             this.TBBSettings.Size = new System.Drawing.Size(85, 24);
             this.TBBSettings.Text = "Ustawienia";
+            this.TBBSettings.Click += new System.EventHandler(this.TBBSettings_Click);
             // 
             // TBBHelp
             // 
@@ -108,6 +109,7 @@
             this.TBBQuit.Name = "TBBQuit";
             this.TBBQuit.Size = new System.Drawing.Size(63, 24);
             this.TBBQuit.Text = "Wyjście";
+            this.TBBQuit.Click += new System.EventHandler(this.TBBQuit_Click);
             // 
             // MainForm
             // 

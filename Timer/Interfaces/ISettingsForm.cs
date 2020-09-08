@@ -8,6 +8,6 @@ namespace Timer
 {
     interface ISettingsForm
     {
-        Models.Settings Settings { get; set; }
+        DateTime date { get; set; }
     }
 }

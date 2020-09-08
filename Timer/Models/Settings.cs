@@ -9,16 +9,11 @@ namespace Timer.Models
 {
     public class Settings : System.Windows.Forms.DateTimePicker, ISettings
     {
-        private readonly IRepository _repository;
+        Repository _repository = new Repository();
         public Settings() 
         {
         
         }
-        Settings(IRepository repository)
-        {
-            _repository = repository;
-        }
-
         public void loadSettingsForm(object sender, EventArgs e)
         {
             loadDPData();            
@@ -26,20 +21,27 @@ namespace Timer.Models
 
         public void saveData(DateTime date)
         {
-            int maxDPValue = Convert.ToInt32((date - DateTime.Now).TotalSeconds);
-            _repository.saveData(Convert.ToString(date), Convert.ToString(maxDPValue));
+                int maxDPValue = Convert.ToInt32((date - DateTime.Now).TotalSeconds);
+                _repository.saveData(Convert.ToString(date), Convert.ToString(maxDPValue));
         }
-        public void loadDPData()
+        public bool validateDate(DateTime date)
+        {
+            if (date > DateTime.Now)
+                return true;
+            else
+                return false;
+        }
+        public DateTime loadDPData()
         {
             bool flag = false;
             //Check if file exist, and if the date write in it is not past
             if (_repository.ifExists(_repository.getDate()) && Convert.ToDateTime(_repository.getDate()) > DateTime.Now)
             {
-                this.Value = Convert.ToDateTime(_repository.getDate());
+                return Convert.ToDateTime(_repository.getDate());
             }
             else
             {
-                this.Value = DateTime.Now;
+                return DateTime.Now;
             }
         }
     }
