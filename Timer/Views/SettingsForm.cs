@@ -39,7 +39,7 @@ namespace Timer
                 Close();
             }
             else
-                MessageBox.Show("Cannot set earlier date or equal present date", "Error", 0);
+                MessageBox.Show("Cannot set date that is earlier than/equal to present date", "Error", 0);
         }
 
         private void tbbQuit_Click(object sender, EventArgs e)

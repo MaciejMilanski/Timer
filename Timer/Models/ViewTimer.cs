@@ -15,7 +15,6 @@ namespace Timer.Models
 
         System.Timers.Timer timer;
         private DateTime groundZero = new DateTime();
-        //private DateTime _now = new DateTime(DateTime.Toda)
         private TimeSpan delta = new TimeSpan(0, 0, 0, 0, 0);
         private string dateText;
         private int progressBarMaxValue;
@@ -56,7 +55,7 @@ namespace Timer.Models
         public System.Timers.Timer initializeTimer()
         {
             timer = new System.Timers.Timer();
-            timer.Interval = 100;
+            timer.Interval = 10;
             timer.Elapsed += timerElapsed;
             timer.Start();
             loadData();
@@ -71,15 +70,13 @@ namespace Timer.Models
                 dateText = delta.Days.ToString() + "d:" + delta.Hours.ToString() + "h:" + delta.Minutes.ToString() + "min:" + delta.Seconds.ToString() + "s:" + delta.Milliseconds.ToString() + "ms";
                 progressBarValue = Convert.ToInt32(delta.TotalSeconds);
             }
-            if (groundZero == DateTime.Now)
+            if (delta.TotalSeconds < 0)
+            {
+                dateText = "00d:00h:00min:00s:000ms";
+                progressBarValue = 0;
                 timer.Stop();
-
-            //this.Invoke((MethodInvoker)delegate
-            //{
-            //    this.Text = dateText;
-            //    this.Value = Convert.ToInt32(delta.TotalSeconds);
-            //    this.Update();
-            //});
+                timer.Close();
+            }
         }
         public bool loadData()
         {            

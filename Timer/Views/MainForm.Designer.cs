@@ -32,7 +32,6 @@
             this.pbProgressBar = new CircularProgressBar.CircularProgressBar();
             this.ToolBar = new System.Windows.Forms.ToolStrip();
             this.TBBSettings = new System.Windows.Forms.ToolStripButton();
-            this.TBBHelp = new System.Windows.Forms.ToolStripButton();
             this.TBBQuit = new System.Windows.Forms.ToolStripButton();
             this.ToolBar.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +57,7 @@
             this.pbProgressBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.pbProgressBar.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.pbProgressBar.Size = new System.Drawing.Size(500, 500);
-            this.pbProgressBar.StartAngle = 0;
+            this.pbProgressBar.StartAngle = 270;
             this.pbProgressBar.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.pbProgressBar.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
             this.pbProgressBar.SubscriptText = "";
@@ -74,7 +73,6 @@
             this.ToolBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TBBSettings,
-            this.TBBHelp,
             this.TBBQuit});
             this.ToolBar.Location = new System.Drawing.Point(0, 0);
             this.ToolBar.Name = "ToolBar";
@@ -88,18 +86,9 @@
             this.TBBSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TBBSettings.Name = "TBBSettings";
             this.TBBSettings.RightToLeftAutoMirrorImage = true;
-            this.TBBSettings.Size = new System.Drawing.Size(85, 24);
-            this.TBBSettings.Text = "Ustawienia";
+            this.TBBSettings.Size = new System.Drawing.Size(66, 24);
+            this.TBBSettings.Text = "Settings";
             this.TBBSettings.Click += new System.EventHandler(this.TBBSettings_Click);
-            // 
-            // TBBHelp
-            // 
-            this.TBBHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TBBHelp.Image = ((System.Drawing.Image)(resources.GetObject("TBBHelp.Image")));
-            this.TBBHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TBBHelp.Name = "TBBHelp";
-            this.TBBHelp.Size = new System.Drawing.Size(58, 24);
-            this.TBBHelp.Text = "Pomoc";
             // 
             // TBBQuit
             // 
@@ -107,8 +96,8 @@
             this.TBBQuit.Image = ((System.Drawing.Image)(resources.GetObject("TBBQuit.Image")));
             this.TBBQuit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TBBQuit.Name = "TBBQuit";
-            this.TBBQuit.Size = new System.Drawing.Size(63, 24);
-            this.TBBQuit.Text = "Wyjście";
+            this.TBBQuit.Size = new System.Drawing.Size(41, 24);
+            this.TBBQuit.Text = "Quit";
             this.TBBQuit.Click += new System.EventHandler(this.TBBQuit_Click);
             // 
             // MainForm
@@ -119,8 +108,9 @@
             this.ClientSize = new System.Drawing.Size(582, 587);
             this.Controls.Add(this.ToolBar);
             this.Controls.Add(this.pbProgressBar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
-            this.Text = "CountDown";
+            this.Text = "Countdown timer";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ToolBar.ResumeLayout(false);
             this.ToolBar.PerformLayout();
@@ -134,7 +124,6 @@
         private CircularProgressBar.CircularProgressBar pbProgressBar;
         private System.Windows.Forms.ToolStrip ToolBar;
         private System.Windows.Forms.ToolStripButton TBBSettings;
-        private System.Windows.Forms.ToolStripButton TBBHelp;
         private System.Windows.Forms.ToolStripButton TBBQuit;
     }
 }

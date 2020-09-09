@@ -36,7 +36,6 @@ namespace Timer
         private void TBBSettings_Click(object sender, EventArgs e)
         {
             SettingsForm settings = new SettingsForm();
-            //presenter = new MainFormPresenter(this);
             settings.ShowDialog();
             presenter.formLoad();
 
@@ -47,7 +46,6 @@ namespace Timer
         }
         private void timerElapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            //presenter = new MainFormPresenter(this);
             this.Invoke((MethodInvoker)delegate
            {
                presenter.reloadTimer();
@@ -57,6 +55,5 @@ namespace Timer
         public string text { get => pbProgressBar.Text; set => pbProgressBar.Text = value; }
         public int value { get => pbProgressBar.Value; set => pbProgressBar.Value = value; }
         public int maxValue { get => pbProgressBar.Maximum; set => pbProgressBar.Maximum = value; }
-        //public System.Timers.Timer timer { get => _timer; set => _timer = value; }
     }
 }
